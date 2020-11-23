@@ -1,4 +1,4 @@
-import { save,search,search2,getEntities,getRelation,createEntitiy,tstPython } from '@/api/kg'
+import { qa,ner,save,search,search2,getEntities,getRelation,createEntitiy,tstPython } from '@/api/kg'
 
 const state = {
   
@@ -112,6 +112,28 @@ const actions = {
   tstPython({commit}){
     return new Promise((resolve,reject) => {
       tstPython().then(response => {
+        if(response.status==200){
+          resolve(response)
+        }
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  ner({commit},sentence){
+    return new Promise((resolve,reject) => {
+      ner(sentence).then(response => {
+        if(response.status==200){
+          resolve(response)
+        }
+      }).catch(error => {
+        reject(error)
+      })
+    })
+  },
+  qa({commit},question){
+    return new Promise((resolve,reject) => {
+      qa(question).then(response => {
         if(response.status==200){
           resolve(response)
         }

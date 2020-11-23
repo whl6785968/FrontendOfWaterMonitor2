@@ -1,5 +1,5 @@
 <template>
-  <div class="ner">
+  <div id="re">
     <div class="text_input">
       <div class="text_title">
        <strong>输入文本:</strong> 
@@ -18,13 +18,13 @@
     </div>
     <div class="rec_result">
       <div class="rec_title">
-       <strong>[查看识别结果]:</strong> 
+       <strong>[查看抽取结果]:</strong> 
       </div>
       <div class="rec_content">
         <el-input
           type="textarea"
           :rows="10"
-          placeholder="请输入内容"
+          placeholder=""
           v-model="resultArea">
         </el-input>
       </div>
@@ -34,37 +34,21 @@
 
 <script>
   export default {
-  data() {
-    return {
-      textarea: '',
-      resultArea: ''
-    }
-  },
-  methods: {
-    predict(){
-        this.$store.dispatch('kg/ner',this.textarea).then(response => {
-            const data = response.obj
-            let res = ''
-            for(let i = 0;i < data.length;i++){
-              res += data[i] +'\n'
-            }
-            
-            if(res == ''){
-              this.resultArea = '没有识别出任何实体'
-            }
-            
-            this.resultArea = res
-        })
+    data(){
+      return {
+        textarea: '',
+        resultArea: ''
+      }
+    },
+    methods: {
+      predict(){
+        
+      }
     }
   }
-}
 </script>
 
 <style>
-  .ner{
-   /* padding: 32px;*/
-  width: 100%;
-  }
   .rec_content{
     background-color: white;
     padding: 30px;

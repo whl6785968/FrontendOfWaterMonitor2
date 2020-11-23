@@ -8,8 +8,6 @@ import page404 from '@/components/404/'
 import userinfo from '@/components/user/'
 import tst from '@/components/tst/'
 import kgManager from '@/components/kg/kgManager/'
-import ner from '@/components/kg/ner/'
-import klm from '@/components/kg/knowledgeManager/'
 import bd from '@/components/bigData/'
 import sd from '@/components/dataRelated/ScrollData/'
 import dynChart from '@/components/bigData/dynamicData/'
@@ -40,16 +38,8 @@ export const constantRoutes = [
           component: tst
         },
         {
-          path: '/kgManager',
+          path: '/previous_kgm',
           component: kgManager
-        },
-        {
-          path: '/ner',
-          component: ner
-        },
-        {
-          path: '/klm',
-          component: klm
         },
         {
           path: 'sd',

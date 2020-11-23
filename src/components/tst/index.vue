@@ -21,14 +21,16 @@
   export default {
     data() {
       return {
+        sentence: '王海龙就读于南京理工大学'
       }
     },
     mounted() {
 
     },
+   
     methods: {
       tst() {
-        this.$store.dispatch('algo/trainIsoForest').then(response => {
+        this.$store.dispatch('kg/ner',this.sentence).then(response => {
 
         })
       }

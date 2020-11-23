@@ -73,3 +73,19 @@ export function tstPython(){
     method: 'get'
   })
 }
+
+export function ner(sentence){
+  return request({
+    url: '/kg/ner',
+    method: 'get',
+    params: { sentence }
+  })
+}
+
+export function qa(question){
+  return request({
+    url: '/kg/qa',
+    method: 'get',
+    params: { question }
+  })
+}

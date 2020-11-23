@@ -122,6 +122,18 @@ export const fmtRouters = (routes) => {
     else if(component.startsWith('showKg')){
       cname = () => import('@/components/kg/')
     }
+    else if(component.startsWith('ner')){
+      cname = () => import('@/components/kg/ner/')
+    }
+    else if(component.startsWith('qa')){
+      cname = () => import('@/components/kg/qa/')
+    }
+    else if(component.startsWith('relationExtract')){
+      cname = () => import('@/components/kg/relationExtract/')
+    }
+    else if(component.startsWith('kgManager')){
+      cname = () => import('@/components/kg/knowledgeManager/')
+    }
 //  alert(cname);
     let fmRouter = {
       path: path,

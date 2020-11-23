@@ -172,10 +172,10 @@
         </el-form-item>
         <el-form-item label="实体标签">
           <el-radio-group v-model="entityForm.label" size="medium" style="width: 500px;">
-            <el-radio :border='true' label="站点"></el-radio>
-            <el-radio border label="区域"></el-radio>
+            <!--<el-radio :border='true' label="站点"></el-radio>-->
+            <!--<el-radio border label="区域"></el-radio>-->
             <el-radio border label="知识"></el-radio>
-            <el-radio border label="企业"></el-radio>
+            <el-radio border label="其他"></el-radio>
           </el-radio-group>
         </el-form-item>
       </el-form>
