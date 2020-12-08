@@ -22,7 +22,8 @@
             list-type="picture-card"
             :on-preview="handlePictureCardPreview"
             :on-remove="handleRemove"
-            :on-success="handleSuccess">
+            :on-success="handleSuccess"
+            :on-change="handleChange">
             <i class="el-icon-plus"></i>
           </el-upload>
           <el-dialog :visible.sync="dialogVisible" size="tiny">
@@ -103,9 +104,8 @@
           }
         })
       },
-      handlePictureCardPreview(file) {
-        this.dialogImageUrl = file.url;
-        this.dialogVisible = true;
+      handleChange(file,fileList){
+        alert(111)
       },
       handleSuccess(response,file,fileList){
         this.sizeForm.imgList.push(response.obj)

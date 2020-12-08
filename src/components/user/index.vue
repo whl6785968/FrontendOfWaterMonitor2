@@ -1,60 +1,95 @@
 <template>
   <div class="userinfo">
-    <div class="avatar">
-      <img src="../../../static/moon.png" class="user-avatar" />
-      <div><font color="#8CC5FF" size="5">{{ user_info.name}}</font></div>
-      <div>{{ role == 'ROLE_ADMIN'? '管理员':'普通用户' }}</div>
-    </div>
-    <div style="border-bottom: 1px solid #ECECEC;margin-bottom: 20px;"></div>
-    <div class="info">
-      <el-form :model="ruleForm" status-icon ref="ruleForm" :rules='rules' label-width="100px" class="demo-ruleForm" label-position='left'>
-        <el-form-item label="姓         名">
-          <el-input v-model="ruleForm.name" autocomplete="off" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="年         龄" >
-          <el-input v-model="ruleForm.age" disabled></el-input>
-        </el-form-item>
-        <el-form-item label="联系方式" prop="link">
-          <el-input v-model="ruleForm.link" autocomplete="off" :placeholder="user_info.link"></el-input>
-        </el-form-item>
-        <el-form-item label="描       述" prop='descr'>
-          <el-input type="textarea" :rows="2"  v-model="ruleForm.descr">
-          </el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">保存信息</el-button>
-          <el-button @click="dialogVisible = true ">修改密码</el-button>
-        </el-form-item>
-      </el-form>
-    </div>
+    <el-row :gutter="5">
+      <el-col :span="8">
+        <el-card class="box-card">
+          <div slot="header" class="clearfix">
+            <span style="font-size:15px; float: left;">个人信息</span>
+            <!--<span style="float: right;">
+              <el-upload
+              class="upload-demo"
+              action="/uploadPic"
+              :headers="headers"
+              :on-remove="handleRemove"
+              :on-success="handleSuccess"
+              multiple="false"
+              :file-list="fileList">
+              <el-button style="float: right; padding: 3px 0" type="text">上传头像</el-button>
+            </el-upload>
+            </span>-->
+            <el-button style="float: right; padding: 3px 0" type="text" @click="dialogVisible = true">修改密码</el-button>
+          </div>
+          <div>
+            <img :src="user_info.avatar" width="100px" height="100px"/>
+            <table>
+              <tr>
+                <td align="left"><i class="el-icon-s-custom"></i>登录账号：</td>
+                <td style="text-align: right;">{{username}}</td>
+              </tr>
+              <tr>
+                <td align="left"><i class="el-icon-user"></i>用户名称：</td>
+                <td style="text-align: right;">{{user_info.name}}</td>
+              </tr>
+              <tr>
+                <td align="left"><i class="el-icon-female"></i>用户性别：</td>
+                <td style="text-align: right;">{{user_info.sex}}</td>
+              </tr>
+              <tr>
+                <td align="left"><i class="el-icon-service"></i>用户年龄：</td>
+                <td style="text-align: right;">{{user_info.age}}</td>
+              </tr>
+              <tr >
+                <td align="left"><i class="el-icon-mobile-phone"></i>联系方式：</td>
+                <td style="text-align: right;">{{user_info.link}}</td>
+              </tr>
+              <tr>
+                <td align="left"><i class="el-icon-chat-dot-square"></i>用户描述：</td>
+                <td style="text-align: right;">{{user_info.descr}}</td>
+              </tr>
+            </table>
+          </div>
+        </el-card>
+      </el-col>
+      
+      <el-col :span="16">
+        <el-card class="box-card" style="width: 100%;">
+          <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
+            <el-tab-pane label="修改资料" name="first"><updateUser></updateUser></el-tab-pane>
+            <el-tab-pane label="操作日志" name="second"><userLog></userLog></el-tab-pane>
+          </el-tabs>
+        </el-card>
+        
+      </el-col>
+    </el-row>
+      
     <el-dialog
-      title="提示"
+      title="请输入新密码"
       :visible.sync="dialogVisible"
       width="30%"
-      :before-close="handleClose"
       :modal-append-to-body = false 
       >
-      <span>这是一段信息</span>
-      <span slot="footer" class="dialog-footer">
-        <el-form :model="passForm" status-icon :rules="passRules" ref="passForm" label-width="100px" class="demo-passForm" label-position='left'>
-          <el-form-item label="密码" prop="pass">
-            <el-input type="password" v-model="passForm.pass" autocomplete="off"></el-input>
-          </el-form-item>
-          <el-form-item label="确认密码" prop="checkPass">
-            <el-input type="password" v-model="passForm.checkPass" autocomplete="off"></el-input>
-          </el-form-item>
-        
-          <el-form-item>
-            <el-button type="primary" @click="updatePassword('passForm')">提交</el-button>
-            <el-button @click="dialogVisible = false">取消</el-button>
-          </el-form-item>
-        </el-form>
-      </span>
+      <el-form :model="passForm" status-icon :rules="passRules" ref="passForm" label-width="100px" class="demo-passForm" label-position='left'>
+        <el-form-item label="密码" prop="pass">
+          <el-input type="password" v-model="passForm.pass" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="确认密码" prop="checkPass">
+          <el-input type="password" v-model="passForm.checkPass" autocomplete="off"></el-input>
+        </el-form-item>
+      
+        <el-form-item>
+          <el-button type="primary" @click="updatePassword('passForm')">提交</el-button>
+          <el-button @click="dialogVisible = false">取消</el-button>
+        </el-form-item>
+      </el-form>
     </el-dialog>
   </div>
 </template>
 
 <script>
+  import { getToken } from '@/utils/auth'
+  import userLog from '@/components/userLog/'
+  import updateUser from '@/components/updateUser'
+  
   export default {
     data() {
       let checkNumber = (rule,value,callback) => {
@@ -103,6 +138,9 @@
       return {
         username: '',
         user_info: '',
+        activeName: 'first',
+        headers: {'X-Token':getToken()},
+        avatar: '',
         ruleForm: {
           name: '',
           link: '',
@@ -137,6 +175,10 @@
       this.load_info()
     },
     inject:['reload'],
+    components: {
+      userLog,
+      updateUser
+    },
     methods: {
       load_info() {
         this.username = sessionStorage.getItem('username')
@@ -186,6 +228,25 @@
           }
         });
       },
+      handleClick(tab, event) {
+        console.log(tab, event);
+      },
+      handleRemove(file, fileList) {
+        this.$store.dispatch('msg/deleteFile',file.response.obj).then(response => {
+          if(response.status == 200){
+            this.$message({
+              message: '删除成功',
+              type: 'success'
+            })
+          }
+        })
+      },      handleExceed(files, fileList) {
+        this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+      },
+      handleSuccess(response,file,fileList){
+        this.avatar = response.obj
+        alert(this.avatar)
+      },
       updatePassword(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
@@ -224,6 +285,7 @@
 <style scoped="scoped">
   .userinfo {
     width: 100%;
+    height: 100%;
     background-color: #FFFFFF;
     padding: 32px;
     text-align: center;
@@ -247,5 +309,38 @@
   .demo-ruleForm {
     margin-left: 430px;
     width: 500px;
+  }
+  
+  .text {
+    font-size: 7px;
+  }
+
+  .item {
+    margin-bottom: 18px;
+  }
+
+  .clearfix:before,
+  .clearfix:after {
+    display: table;
+    content: "";
+  }
+  .clearfix:after {
+    clear: both
+  }
+
+  .box-card {
+    width: 280px;
+  }
+  
+  table{
+    width: 100%;
+  }
+  
+  td{
+    height: 50px;
+  }
+  
+  tr{
+    border-bottom: 1px #DCDFE6 solid;
   }
 </style>

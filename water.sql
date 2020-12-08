@@ -393,7 +393,7 @@ CREATE TABLE `menu` (
 
 LOCK TABLES `menu` WRITE;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
-INSERT INTO `menu` VALUES (0,'/','/dashboard','dashboard','all',NULL,1,NULL,1,1),(1,'/','/dashboard','dashboard','用户管理',NULL,1,0,1,1),(2,'/','/dashboard','dashboard','数据展示',NULL,1,0,1,1),(3,'/sys/user/**','/userManager/authContol','authControl','权限控制',NULL,1,1,1,1),(4,'/data/basic/**','/dataRelated/equipList','checkData','数据详情',NULL,1,2,1,1),(5,'/sys/menu/**','/userManager/menuConfig','menuConfig','菜单配置',NULL,1,1,1,1),(6,'/user/basic/**','/dashboard','dashboard','userbasic',NULL,1,0,0,0),(7,'/data/basic/**','/dataRelated/equipList/dataDetails/:id','dataDetails','dataDetails',NULL,1,2,1,0),(8,'/data/basic/**','/dataRelated/map','map','站点地图',NULL,1,2,1,1),(9,'/','dashboard','dashboard','消息',NULL,1,0,1,1),(10,'/msg/basic/**','/msg/posting','posting','发送消息',NULL,1,9,1,1),(11,'/msg/basic/**','/msg/readablePost','readablePost','消息列表',NULL,1,9,1,1),(12,'/sys/msg/**','/msg/review','review','消息审查',NULL,1,9,1,1),(13,'/msg/basic/**','/msg/postDetail/:id','postDetail','postDetail',NULL,1,9,1,0),(14,'/','dashboard','dashboard','报告',NULL,1,0,1,1),(15,'/report/basic/**','/report/reportList','reportList','报告列表',NULL,1,14,1,1),(16,'/report/basic/**','/report/reportDeatils/:createTime','reportDetails','reportDetails',NULL,1,14,1,0),(17,'/','/dashboard','dashboard','异常处理',NULL,1,0,1,1),(18,'/algo/basic/**','/algo/anomalyMonitoring','isoForest','异常监控',NULL,1,17,1,1),(19,'/','/dashboard','dashboard','非用户管理',NULL,1,0,1,1),(20,'/sys/data/**','/manager/stationManager','stationManager','站点管理',NULL,1,19,1,1),(21,'/sys/data/**','/manager/districtManager','districtManager','区域管理',NULL,1,19,1,1),(22,'/sys/data/**','/manager/equipManager','equipManager','设备管理',NULL,1,19,1,1),(23,'/','/dashboard','dashboard','知识图谱',NULL,1,0,1,1),(24,'/kg/**','/kg/showKg','showKg','知识图谱展示',NULL,1,23,1,1),(25,'/algo/basic/**','/algo/errRecord','errRecord','异常记录',NULL,1,17,1,1),(26,'/sys/data/**','/manager/provinceManager','provinceManager','省市管理',NULL,1,19,1,1),(27,'/sys/data/**','/manager/enterpriseManager','enterpriseManager','企业管理',NULL,1,19,1,1);
+INSERT INTO `menu` VALUES (0,'/','/dashboard','dashboard','all',NULL,1,NULL,1,1),(1,'/','/dashboard','dashboard','用户管理',NULL,1,0,1,1),(2,'/','/dashboard','dashboard','数据展示',NULL,1,0,1,1),(3,'/sys/user/**','/userManager/authContol','authControl','权限控制',NULL,1,1,1,1),(4,'/data/basic/**','/dataRelated/equipList','checkData','数据详情',NULL,1,2,1,1),(5,'/sys/menu/**','/userManager/menuConfig','menuConfig','菜单配置',NULL,1,1,1,1),(6,'/user/basic/**','/dashboard','dashboard','userbasic',NULL,1,0,0,0),(7,'/data/basic/**','/dataRelated/equipList/dataDetails/:id','dataDetails','dataDetails',NULL,1,2,1,0),(8,'/data/basic/**','/dataRelated/map','map','站点地图',NULL,1,2,1,1),(9,'/','dashboard','dashboard','消息',NULL,1,0,1,1),(10,'/msg/basic/**','/msg/posting','posting','发送消息',NULL,1,9,1,1),(11,'/msg/basic/**','/msg/readablePost','readablePost','消息列表',NULL,1,9,1,1),(12,'/sys/msg/**','/msg/review','review','消息审查',NULL,1,9,1,1),(13,'/msg/basic/**','/msg/postDetail/:id','postDetail','postDetail',NULL,1,9,1,0),(14,'/','dashboard','dashboard','报告',NULL,1,0,1,1),(15,'/report/basic/**','/report/reportList','reportList','报告列表',NULL,1,14,1,1),(16,'/report/basic/**','/report/reportDeatils/:createTime','reportDetails','reportDetails',NULL,1,14,1,0),(17,'/','/dashboard','dashboard','异常处理',NULL,1,0,1,1),(18,'/algo/basic/**','/algo/anomalyMonitoring','isoForest','异常监控',NULL,1,17,1,1),(19,'/','/dashboard','dashboard','非用户管理',NULL,1,0,1,1),(20,'/sys/data/**','/manager/stationManager','stationManager','站点管理',NULL,1,19,1,1),(21,'/sys/data/**','/manager/districtManager','districtManager','区域管理',NULL,1,19,1,1),(22,'/sys/data/**','/manager/equipManager','equipManager','设备管理',NULL,1,19,1,1),(23,'/','/dashboard','dashboard','知识图谱',NULL,1,0,1,1),(24,'/kg/**','/kg/showKg','showKg','知识图谱展示',NULL,1,23,1,1),(25,'/algo/basic/**','/algo/errRecord','errRecord','异常记录',NULL,1,17,1,1),(26,'/sys/data/**','/manager/provinceManager','provinceManager','省市管理',NULL,1,19,1,1),(27,'/sys/data/**','/manager/enterpriseManager','enterpriseManager','企业管理',NULL,1,19,1,1),(28,'/kg/**','/kg/ner','ner','实体识别',NULL,1,23,1,1),(29,'/kg/**','/kg/qa','qa','知识问答',NULL,1,23,1,1),(30,'/kg/**','/kg/relationExtract','relationExtract','关系抽取',NULL,1,23,1,1),(31,'/kg/**','/kg/kgManager','kgManager','知识图谱管理',NULL,1,23,1,1);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -449,7 +449,7 @@ CREATE TABLE `msg_user` (
   KEY `uid` (`uid`),
   CONSTRAINT `msg_user_ibfk_1` FOREIGN KEY (`mid`) REFERENCES `msg` (`postId`),
   CONSTRAINT `msg_user_ibfk_2` FOREIGN KEY (`uid`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=94 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -458,7 +458,7 @@ CREATE TABLE `msg_user` (
 
 LOCK TABLES `msg_user` WRITE;
 /*!40000 ALTER TABLE `msg_user` DISABLE KEYS */;
-INSERT INTO `msg_user` VALUES (39,'34e0870d173c42b3ac1d28fd91ff87951574669874599','test2',1),(40,'89d70fdab63648d6a20104647d7ffcbd1574670154709','test1',1),(41,'89d70fdab63648d6a20104647d7ffcbd1574670154709','test2',1),(43,'37415f0d443c43b1b8907ab15fc4d0261574672157752','test2',1),(44,'a988b5947e6e4c2cb9b87e576fa9a1181574672321609','test1',1),(45,'ecbbe95e8943440c820b57e5100b155c1582005063949','admin',0),(48,'3d21d1ccd00545528ed54cd02c60920d1582007648532','admin',0),(49,'3d21d1ccd00545528ed54cd02c60920d1582007648532','test1',1),(51,'0c3abfa4b1af4e37994e1af9c6dc79d71582007949881','admin',0),(52,'0c3abfa4b1af4e37994e1af9c6dc79d71582007949881','test1',1),(54,'18afe2f904d84ea185064633152440651582346061942','admin',0),(57,'154bbe90473a4342861149e1bf9f48ef1582346395787','admin',0),(60,'8ec042cf49b04b25a59c4cb3dddb43d41582346889739','admin',1),(63,'e0ed0782e0c84eed94629d029d98d2dd1589183679289','admin',0),(66,'e0ed0782e0c84eed94629d029d98d2dd1589183679289','test3',0),(67,'05def1a58fdf49ccacf072ef13a65c3b1592721809246','admin',0),(70,'05def1a58fdf49ccacf072ef13a65c3b1592721809246','test3',0),(71,'198d84a514d9486390a80d88541a7c701593768405064','admin',0),(73,'198d84a514d9486390a80d88541a7c701593768405064','test3',0),(75,'6e9809775322421b926d7afce537ea4c1597204130124','admin',0),(77,'6e9809775322421b926d7afce537ea4c1597204130124','test3',0),(78,'6e9809775322421b926d7afce537ea4c1597204130124','test2',1),(79,'8887dfd00b424e659acb4cbf606d25bf1602644207412','admin',0),(81,'8887dfd00b424e659acb4cbf606d25bf1602644207412','test3',0),(82,'8887dfd00b424e659acb4cbf606d25bf1602644207412','test2',0),(83,'d371c1cb2f324fd8b33bf8b630432b511604280285449','admin',0),(84,'d371c1cb2f324fd8b33bf8b630432b511604280285449','test1',1),(85,'d371c1cb2f324fd8b33bf8b630432b511604280285449','test3',0),(86,'d371c1cb2f324fd8b33bf8b630432b511604280285449','test2',0),(87,'f45e9b0937b24af897d5267e5b3553cb1604280606509','admin',0),(88,'f45e9b0937b24af897d5267e5b3553cb1604280606509','test1',1),(89,'f45e9b0937b24af897d5267e5b3553cb1604280606509','test3',0),(90,'8f2791c7b8cc4c17a6469058990441451604738804563','admin',0),(92,'8f2791c7b8cc4c17a6469058990441451604738804563','test3',0),(93,'8f2791c7b8cc4c17a6469058990441451604738804563','test2',0);
+INSERT INTO `msg_user` VALUES (39,'34e0870d173c42b3ac1d28fd91ff87951574669874599','test2',1),(40,'89d70fdab63648d6a20104647d7ffcbd1574670154709','test1',1),(41,'89d70fdab63648d6a20104647d7ffcbd1574670154709','test2',1),(43,'37415f0d443c43b1b8907ab15fc4d0261574672157752','test2',1),(44,'a988b5947e6e4c2cb9b87e576fa9a1181574672321609','test1',1),(45,'ecbbe95e8943440c820b57e5100b155c1582005063949','admin',0),(48,'3d21d1ccd00545528ed54cd02c60920d1582007648532','admin',0),(49,'3d21d1ccd00545528ed54cd02c60920d1582007648532','test1',1),(51,'0c3abfa4b1af4e37994e1af9c6dc79d71582007949881','admin',0),(52,'0c3abfa4b1af4e37994e1af9c6dc79d71582007949881','test1',1),(54,'18afe2f904d84ea185064633152440651582346061942','admin',0),(57,'154bbe90473a4342861149e1bf9f48ef1582346395787','admin',0),(60,'8ec042cf49b04b25a59c4cb3dddb43d41582346889739','admin',1),(63,'e0ed0782e0c84eed94629d029d98d2dd1589183679289','admin',0),(66,'e0ed0782e0c84eed94629d029d98d2dd1589183679289','test3',0),(67,'05def1a58fdf49ccacf072ef13a65c3b1592721809246','admin',0),(70,'05def1a58fdf49ccacf072ef13a65c3b1592721809246','test3',0),(71,'198d84a514d9486390a80d88541a7c701593768405064','admin',0),(73,'198d84a514d9486390a80d88541a7c701593768405064','test3',0),(75,'6e9809775322421b926d7afce537ea4c1597204130124','admin',0),(77,'6e9809775322421b926d7afce537ea4c1597204130124','test3',0),(78,'6e9809775322421b926d7afce537ea4c1597204130124','test2',1),(79,'8887dfd00b424e659acb4cbf606d25bf1602644207412','admin',0),(81,'8887dfd00b424e659acb4cbf606d25bf1602644207412','test3',0),(83,'d371c1cb2f324fd8b33bf8b630432b511604280285449','admin',0),(84,'d371c1cb2f324fd8b33bf8b630432b511604280285449','test1',1),(85,'d371c1cb2f324fd8b33bf8b630432b511604280285449','test3',0),(87,'f45e9b0937b24af897d5267e5b3553cb1604280606509','admin',0),(88,'f45e9b0937b24af897d5267e5b3553cb1604280606509','test1',1),(89,'f45e9b0937b24af897d5267e5b3553cb1604280606509','test3',0),(90,'8f2791c7b8cc4c17a6469058990441451604738804563','admin',0),(92,'8f2791c7b8cc4c17a6469058990441451604738804563','test3',0);
 /*!40000 ALTER TABLE `msg_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -617,7 +617,7 @@ CREATE TABLE `role_menu` (
   KEY `role_id` (`role_id`),
   CONSTRAINT `role_menu_ibfk_1` FOREIGN KEY (`menu_id`) REFERENCES `menu` (`id`),
   CONSTRAINT `role_menu_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`roleId`)
-) ENGINE=InnoDB AUTO_INCREMENT=398 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=484 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -626,7 +626,7 @@ CREATE TABLE `role_menu` (
 
 LOCK TABLES `role_menu` WRITE;
 /*!40000 ALTER TABLE `role_menu` DISABLE KEYS */;
-INSERT INTO `role_menu` VALUES (184,'001',4),(185,'001',7),(186,'001',8),(187,'001',10),(188,'001',11),(189,'001',13),(190,'001',15),(191,'001',16),(195,'001',18),(379,'777',3),(380,'777',5),(381,'777',4),(382,'777',7),(383,'777',8),(384,'777',10),(385,'777',11),(386,'777',12),(387,'777',13),(388,'777',15),(389,'777',16),(390,'777',18),(391,'777',25),(392,'777',20),(393,'777',21),(394,'777',22),(395,'777',26),(396,'777',27),(397,'777',24);
+INSERT INTO `role_menu` VALUES (184,'001',4),(185,'001',7),(186,'001',8),(187,'001',10),(188,'001',11),(189,'001',13),(190,'001',15),(191,'001',16),(195,'001',18),(461,'777',3),(462,'777',5),(463,'777',4),(464,'777',7),(465,'777',8),(466,'777',10),(467,'777',11),(468,'777',12),(469,'777',13),(470,'777',15),(471,'777',16),(472,'777',18),(473,'777',25),(474,'777',20),(475,'777',21),(476,'777',22),(477,'777',26),(478,'777',27),(479,'777',24),(480,'777',28),(481,'777',29),(482,'777',30),(483,'777',31);
 /*!40000 ALTER TABLE `role_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -678,7 +678,7 @@ CREATE TABLE `station_district` (
   KEY `did` (`did`),
   CONSTRAINT `station_district_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `station` (`id`),
   CONSTRAINT `station_district_ibfk_2` FOREIGN KEY (`did`) REFERENCES `district` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -707,7 +707,7 @@ CREATE TABLE `station_province` (
   KEY `pid` (`pid`),
   CONSTRAINT `station_province_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `station` (`id`),
   CONSTRAINT `station_province_ibfk_2` FOREIGN KEY (`pid`) REFERENCES `province` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -718,6 +718,38 @@ LOCK TABLES `station_province` WRITE;
 /*!40000 ALTER TABLE `station_province` DISABLE KEYS */;
 INSERT INTO `station_province` VALUES (6,'4001',8602),(7,'4002',8611),(8,'4003',8611),(9,'4004',8613),(10,'4005',8614),(11,'4006',8617),(12,'4007',8624),(13,'4008',8604),(14,'4009',8619),(15,'4010',8622),(16,'4011',8623),(17,'4012',8607),(18,'4013',8606),(19,'4014',8621),(20,'4015',8616),(21,'4016',8615),(22,'4017',8618),(23,'4018',8625),(24,'4019',8609),(25,'4020',8610);
 /*!40000 ALTER TABLE `station_province` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `system_log`
+--
+
+DROP TABLE IF EXISTS `system_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `system_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `itr` varchar(200) DEFAULT NULL,
+  `behavior` varchar(32) DEFAULT NULL,
+  `ip` varchar(32) DEFAULT NULL,
+  `ip_origin` varchar(32) DEFAULT NULL,
+  `browser` varchar(32) DEFAULT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `system_log_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `system_log`
+--
+
+LOCK TABLES `system_log` WRITE;
+/*!40000 ALTER TABLE `system_log` DISABLE KEYS */;
+INSERT INTO `system_log` VALUES (1,'com.sandalen.water.controller.UserController.updateUserInfo','修改用户信息','127.0.0.1','本机地址','Chrome 8','2020-12-08 01:50:06','test1'),(2,'com.sandalen.water.controller.KgController.ner','实体识别','127.0.0.1','本机地址','Chrome 8','2020-12-08 01:50:14','test1'),(3,'com.sandalen.water.controller.KgController.qa','知识问答','127.0.0.1','本机地址','Chrome 8','2020-12-08 01:50:35','test1');
+/*!40000 ALTER TABLE `system_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -831,7 +863,7 @@ CREATE TABLE `userinfo` (
 
 LOCK TABLES `userinfo` WRITE;
 /*!40000 ALTER TABLE `userinfo` DISABLE KEYS */;
-INSERT INTO `userinfo` VALUES (1,'sandalen','男',23,'','18245803818','','管理员','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MSJ9.hn1Wxgg73DPKC7x0b7Rqr_e0nWzcqf-9ueyBm36MVGE','test1'),(2,'张亮','女',23,'','18245803818','','38','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MiJ9.WTDHpvBkOBUkmkG-hqP3m7B6mC3IY23QOFvpFgvyNmY','test2'),(3,'alex','男',22,'','18245803818','','visitor','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MyJ9.SVav238wwQmnXEwuUmj7B2ZERA9iS0EYSEq67lf_GFM','test3'),(4,'系统','女',0,NULL,'18245803818',NULL,'系统','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbiJ9.VCNbPfR9_uzwkLRV-JLpysxfM47683wv1lf8tcfrNjU','admin');
+INSERT INTO `userinfo` VALUES (1,'sandalen','男',23,'/static/362b0e4ce5b14702bb3fe049bf364c0d.jpg','18245803818','','管理员','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MSJ9._7xMwVNCRoQZfQen6Xcv6nuAdbg5TJcvRXgl39wnwOU','test1'),(2,'张亮','女',23,'','18245803818','','38','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MiJ9.5TLb7DPdlxoohVjiWfgLXXGqVJhbG2_FMA6PBRVVHoI','test2'),(3,'alex','男',22,'','18245803818','','visitor','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJ0ZXN0MyJ9.SVav238wwQmnXEwuUmj7B2ZERA9iS0EYSEq67lf_GFM','test3'),(4,'系统','女',0,NULL,'18245803818',NULL,'系统','eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhZG1pbiJ9.VCNbPfR9_uzwkLRV-JLpysxfM47683wv1lf8tcfrNjU','admin');
 /*!40000 ALTER TABLE `userinfo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -908,4 +940,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-17 16:41:47
+-- Dump completed on 2020-12-08 17:54:02

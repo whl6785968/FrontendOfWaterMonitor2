@@ -30,12 +30,9 @@
               <i class="el-icon-message-solid" style="font-size: 22px;cursor: pointer;" @mouseover="hover($event)" @mouseleave="leave($event)" @click="pushIntoMsg"></i>
             </el-badge>
             <el-dropdown>
-              <img src="../../static/moon.png" class="user-avatar" />
+              <img :src="userinfo.avatar" class="user-avatar" />
               <el-dropdown-menu slot="dropdown">
                 <el-dropdown-item><router-link to="/userinfo">个人中心</router-link></el-dropdown-item>
-                <el-dropdown-item>狮子头</el-dropdown-item>
-                <el-dropdown-item>螺蛳粉</el-dropdown-item>
-                <el-dropdown-item disabled>双皮奶</el-dropdown-item>
                 <span style="display:block;" @click="logout">
                         <el-dropdown-item divided>注销</el-dropdown-item>
                       </span>
@@ -84,7 +81,8 @@
         mContainer: 190,
         isRouterAlive: true,
         isMenuAlive: true,
-        unReadMsgCount: 0
+        unReadMsgCount: 0,
+        userinfo: ''
       }
     },
     provide() {
@@ -95,6 +93,7 @@
     },
     mounted(){
       this.getUnReadMsgCountByUser()
+      this.getUserinfo()
     },
     destroyed(){
 //    this.closeConnect()
@@ -119,6 +118,13 @@
         this.isRouterAlive = false
         this.$nextTick(function() {
           this.isRouterAlive = true
+        })
+      },
+      getUserinfo(){
+        const username = sessionStorage.getItem('username')
+        this.$store.dispatch('user/getUserInfo', username).then(response => {
+          const data = response.obj
+          this.userinfo = data
         })
       },
       reloadNevigate() {

@@ -63,11 +63,11 @@ export function getUserInfo(userid){
   })
 }
 
-export function updateUserInfo(link,descr,userid){
+export function updateUserInfo(name,link,descr,avatar,userid){
   return request({
     url: '/user/basic/updateUserInfo',
     method: 'post',
-    params: { link,descr,userid }
+    params: { name,link,descr,avatar,userid }
   })
 }
 
@@ -76,5 +76,13 @@ export function updatePassword(userid,pass){
     url: '/user/basic/updatePassword',
     method: 'post',
     params: {userid,pass}
+  })
+}
+
+export function getLog(userid){
+  return request({
+    url: '/user/basic/getLog',
+    method: 'get',
+    params: { userid }
   })
 }
