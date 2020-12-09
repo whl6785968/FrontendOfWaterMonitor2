@@ -1,5 +1,7 @@
 # 水质监控系统前端部分
-该项目为基于vue、echarts、elementUi所开发的水质监控系统的前端部分，后端链接:https://github.com/whl6785968/BackstageWaterForG
+该项目为基于vue、echarts、elementUi所开发的水质监控系统的前端部分
+java后端链接:https://github.com/whl6785968/BackstageWaterForG
+python后端链接：https://github.com/whl6785968/FlaskDemo
 目前该项目具备以下功能:
 ## 1.用户模块
 ![image](https://github.com/whl6785968/FrontendOfWaterMonitor2/blob/main/pro/user.png)
