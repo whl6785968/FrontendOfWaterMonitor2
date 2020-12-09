@@ -134,6 +134,9 @@ export const fmtRouters = (routes) => {
     else if(component.startsWith('kgManager')){
       cname = () => import('@/components/kg/knowledgeManager/')
     }
+    else if(component.startsWith('userList')){
+      cname = () => import('@/components/user/userList/')
+    }
 //  alert(cname);
     let fmRouter = {
       path: path,

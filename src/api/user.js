@@ -86,3 +86,11 @@ export function getLog(userid){
     params: { userid }
   })
 }
+
+export function getAllUser(page,pageSize){
+  return request({
+    url: '/user/basic/getAllUser',
+    method: 'get',
+    params: { page,pageSize }
+  })
+}

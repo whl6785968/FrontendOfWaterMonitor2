@@ -12,6 +12,7 @@ import bd from '@/components/bigData/'
 import sd from '@/components/dataRelated/ScrollData/'
 import dynChart from '@/components/bigData/dynamicData/'
 import report from '@/components/algo/errReport/'
+import userList from '@/components/user/userList/'
 
 
 Vue.use(Router)

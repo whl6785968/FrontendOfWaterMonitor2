@@ -1,5 +1,5 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
-import { getLog,getUser,login,getUserRole,getRoleByUserId,changeRole,getUserInfo,updateUserInfo,updatePassword } from '@/api/user'
+import { getAllUser,getLog,getUser,login,getUserRole,getRoleByUserId,changeRole,getUserInfo,updateUserInfo,updatePassword } from '@/api/user'
 import { MessageBox, Message } from 'element-ui'
 
 const state = {
@@ -164,6 +164,16 @@ const actions = {
       })
     }) 
   },
+  getAllUser({commit},info){
+    const { page,pageSize } = info
+    return new Promise((resolve,reject) => {
+      getAllUser(page,pageSize).then(response => {
+        resolve(response)
+      }).catch(error => {
+        reject(error)
+      })
+    }) 
+  }
 }
 
 export default {
